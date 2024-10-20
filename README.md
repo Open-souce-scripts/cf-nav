@@ -26,7 +26,7 @@ ask question and cloudflare : [https://t.me/seagoing123](https://t.me/seagoing12
 
 2. Alternatively, you can click the button below to deploy directly.
 
-   [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/6Kmfi6HP/EDtunnel)
+   [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Open-souce-scripts/cf-nav)
 
 
 ## Auto Deploy in worker.dev
