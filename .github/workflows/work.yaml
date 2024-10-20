@@ -1,40 +1,27 @@
-name: Deploy site
-
+name: Deploy Worker
 on:
   push:
-    # 请注意你的 branch 名称是 main 还是 master
     branches:
       - main
 jobs:
-  CI:
-    runs-on: ubuntu-22.04
+  deploy_production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: production
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # 
-      - name: Prepare pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-      - name: Prepare Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      # 运行 pnpm install 安装依赖
-      # 我没有配置 node_modules 的缓存，后续会考虑
-      - name: Install dependencies
-        run: pnpm install
-      # 运行 pnpm generate，以 SSG 模式构建 Nuxt 应用
-      - name: Generate site
-        run: pnpm generate
-      # 部署到 Cloudflare Workers
-      - name: Deploy to Cloudflare Workers
+      - uses: actions/checkout@v4
+      - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy
           wranglerVersion: "3.78.10"
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          environment: production
+
+
+
+         
 
 
 
