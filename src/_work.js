@@ -63,7 +63,7 @@ const config = {
         },
         {
           name: "vps",
-          icon: "graduation cap",
+          icon: "database",
           list: [
             { url: "https://hostloc.com/", name: "全球主机交流", desc: "主机物料交流集中地" },
             { url: "https://www.interserver.net/r/1003655", name: "interserver", desc: "性价比极稿的vps提供商" },
