@@ -3,7 +3,7 @@ import { config } from './config.js';
 const el = (tag, attrs, content) => `<${tag} ${attrs.join(" ")}>${content}</${tag}>`;
 
 export function renderIndex() {
-  const footer = el('footer', [], el('div', ['class="footer"'], 'Powered by' + el('a', ['class="ui label"', 'href="https://github.com/sleepwood/cf-worker-dir"', 'target="_blank"'], el('i', ['class="github icon"'], "") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a', ['class="ui label"'], el('i', ['class="balance scale icon"'], "") + 'MIT License')));
+  const footer = el('footer', [], el('div', ['class="footer"'], 'Powered by' + el('a', ['class="ui label"', 'href="https://github.com/Open-souce-scripts/cf-nav"', 'target="_blank"'], el('i', ['class="github icon"'], "") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a', ['class="ui label"'], el('i', ['class="balance scale icon"'], "") + 'MIT License')));
   return renderHeader() + renderMain() + footer;
 }
 
