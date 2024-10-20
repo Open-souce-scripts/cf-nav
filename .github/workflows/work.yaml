@@ -1,23 +1,17 @@
-name: Deploy Worker
+name: Deploy to Cloudflare
+
 on:
   push:
-    branches:
-      - main
+    branches: ['main', 'test']
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Environment
-        run: echo "Setting up environment"
-
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60    
+    name: Deploy
     steps:
       - uses: actions/checkout@v4
-      - name: Build & Deploy Worker
+      - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}          
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
